@@ -24,6 +24,15 @@
 
 		{% endif %}
 
-		{{rawDataLink}}
+		{% if query %}
+			{{rawDataLink}}
+		{% endif %}
+
+		{% if results %}
+			{% for result in results %}
+				{{result.address}}<br>
+			{% endfor %}
+		{% endif %}
+
 	</body>
 </html>
