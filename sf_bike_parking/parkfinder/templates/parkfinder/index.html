@@ -1,23 +1,26 @@
 <!doctype html>
 <html>
 	<head>
-		<title>SF Bike Parking Locator</title>
+		<title>sf bike parking locator</title>
 
 		{% load staticfiles %}
 		<script src="{% static "parkfinder/parking.js" %}"></script>
 
 	</head>
 	<body>
-		<h1>SF Bike Parking Locator</h1>
+		<h1>sf bike parking locator</h1>
+
+		<input id="location-trigger" type="button" value="fill my location!">
+
 		<form>
-			Latitude: <input type="text" name="latitude"><br>
-			Longitude: <input type="text" name="longitude"><br>
-			<input type="submit">
+			latitude: <input id="latitude" type="text" name="latitude"><br>
+			longitude: <input id="longitude" type="text" name="longitude"><br>
+			<input type="submit" value="find bikes!">
 		</form>
 
 		{% if latitude and longitude %}
 
-			<p>Results for ({{latitude}}, {{longitude}})</p>
+			<p>results for ({{latitude}}, {{longitude}})</p>
 		
 			
 

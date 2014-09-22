@@ -1,6 +1,20 @@
-navigator.geolocation.getCurrentPosition(GetLocation);
+window.onload = function() {
+	var button = document.getElementById("location-trigger");
+	button.onclick = function() {
+    	getLocation();
+    	return false;
+    }
+}
+
+
+function getLocation() {
+	document.getElementById("location-trigger").value="Please wait..."
+	navigator.geolocation.getCurrentPosition(GetLocation);
+}
+
 function GetLocation(location) {
-    alert(location.coords.latitude);
-    alert(location.coords.longitude);
-    alert(location.coords.accuracy);
+	document.getElementById("latitude").value = location.coords.latitude;
+	document.getElementById("longitude").value = location.coords.longitude;
+	document.getElementById("location-trigger").value="Fill my location!"
+    // alert(location.coords.accuracy);
 }
