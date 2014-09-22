@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title>SF Bike Parking Locator</title>
+
+		{% load staticfiles %}
+		<script src="{% static "parkfinder/parking.js" %}"></script>
+
+	</head>
+	<body>
+		<h1>SF Bike Parking Locator</h1>
+		<form>
+			Latitude: <input type="text" name="latitude"><br>
+			Longitude: <input type="text" name="longitude"><br>
+			<input type="submit">
+		</form>
+
+		{% if latitude and longitude %}
+
+			<p>Results for ({{latitude}}, {{longitude}})</p>
+		
+			
+
+		{% endif %}
+	</body>
+</html>
