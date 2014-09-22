@@ -10,20 +10,20 @@
 	<body>
 		<h1>sf bike parking locator</h1>
 
-		<input id="location-trigger" type="button" value="fill my location!">
+		<input id="location-trigger" type="button" value="fill my location">
 
 		<form>
-			latitude: <input id="latitude" type="text" name="latitude"><br>
-			longitude: <input id="longitude" type="text" name="longitude"><br>
-			<input type="submit" value="find bikes!">
+			latitude: <input id="latitude" type="text" name="latitude" placeholder="{{latitude}}"><br>
+			longitude: <input id="longitude" type="text" name="longitude" placeholder="{{longitude}}"><br>
+			<input type="submit" value="find parking">
 		</form>
 
 		{% if latitude and longitude %}
 
 			<p>results for ({{latitude}}, {{longitude}})</p>
-		
-			
 
 		{% endif %}
+
+		{{rawDataLink}}
 	</body>
 </html>
