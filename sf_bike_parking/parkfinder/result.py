@@ -4,6 +4,8 @@
 class Result:
 	
 	def __init__(self, result):
+		self.priority = 0
+
 		self.address = result['yr_inst']
 		self.location = result['addr_num']
 		self.longitude = result['latitude']['longitude']
@@ -13,6 +15,9 @@ class Result:
 		self.numRacks = result['racks']
 		self.spaces = result['spaces']
 		self.placement = result['placement']
+
+	def setPriority(self, priority):
+		self.priority = priority
 
 	def __str__(self):
 		return self.address + " " + self.location + " (" + self.longitude + ", " + self.latitude + ")"

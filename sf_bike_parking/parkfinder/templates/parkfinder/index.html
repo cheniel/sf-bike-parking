@@ -1,38 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>sf bike parking locator</title>
 
 		{% load staticfiles %}
-		<script src="{% static "parkfinder/parking.js" %}"></script>
+		<script src="{% static "parking.js" %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static "cssreset.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "style.css" %}"/>
 
 	</head>
 	<body>
-		<h1>sf bike parking locator</h1>
+		<div id="top-bar">
+			<iframe id="github-star" src="http://ghbtns.com/github-btn.html?user=cheniel&repo=sf-bike-parking&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+		</div>
 
-		<input id="location-trigger" type="button" value="fill my location">
+		<div id="header" class="hor-section">
 
-		<form>
-			latitude: <input id="latitude" type="text" name="latitude" placeholder="{{latitude}}"><br>
-			longitude: <input id="longitude" type="text" name="longitude" placeholder="{{longitude}}"><br>
-			<input type="submit" value="find parking">
-		</form>
+			<a href=".">
+				<!-- temp image -->
+				<img src="http://d75822.medialib.glogster.com/media/53/537a88edfbf25c8b1291950b1826a422c5b5820826975327c253f4f3ca36c3da/sf-logo-cmyk-jpg-jpg.jpg">
+				<p><h1>bike parking locator</h1></p>
+			</a>
+			finds nearest public bike rack based on SF open data
+		</div>
+		
+		<div id="search-options" class="hor-section">
 
-		{% if latitude and longitude %}
+			{% if latitude and longitude %}
+				<p>showing {{ results|length }} results for... <br />({{latitude}}, {{longitude}})</p>
+				
+				<a href=".">
+					<div id="new-search-button">
+						<p>new search?</p>
+					</div>
+				</a>
 
-			<p>results for ({{latitude}}, {{longitude}})</p>
+			{% elif street %}
+				<p>showing {{ results|length }} results for... <br />{{street}}</p>
 
-		{% endif %}
+				<a href=".">
+					<div id="new-search-button">
+						<p>new search?</p>
+					</div>
+				</a>
 
-		{% if query %}
-			{{rawDataLink}}
-		{% endif %}
+			{% else %}
+				
+				<div id="search-type-selection">
+					<p>find bike parking</p>
+
+					<div id="location-search-button">
+						via location data
+					</div>
+
+					<p>OR</p>
+
+					<div id="street-search-button">
+						via street
+					</div>
+				</div>
+
+				<div id="location-search-options">
+					<input id="location-trigger" type="button" value="fill my location">
+					<form>
+						latitude: <input id="latitude" type="text" name="latitude" value="{{latitude}}"><br />
+						longitude: <input id="longitude" type="text" name="longitude" value="{{longitude}}"><br />
+						<input type="submit" value="search by location">
+					</form>
+				</div>
+
+				<div id="street-search-options">
+					<form>
+						street name: <input id="street" type="text" name="street" value="{{street}}"><br />
+						<input type="submit" value="search by street">
+					</form>
+				</div>
+
+			{% endif %}
+
+		</div>
 
 		{% if results %}
-			{% for result in results %}
-				{{result.address}}<br>
-			{% endfor %}
+			<div id="results-container" class="hor-section">
+					{% for result in results %}
+						<div class="result">
+							<div class="result-number">
+								{{ result.priority }}
+							</div>
+							<div class="result-info-container">
+								<div class="result-info">
+									{{result.address}}<br />
+									{{result.location}}<br />
+									({{result.latitude}}, {{result.longitude}}) <br />
+									{{result.numRacks}} racks, {{result.spaces}} spaces. <br />
+								</div>
+							</div>
+
+						</div>
+					{% endfor %}
+			
+					{% if rawDataLink %}
+						<a href="{{rawDataLink}}">raw data</a><br />
+					{% endif %}
+
+			</div>
 		{% endif %}
+
+		<div id="footer" class="hor-section">
+			<p><a href="http://www.github.com/cheniel">created by cheniel</a></p>
+		</div>
 
 	</body>
 </html>

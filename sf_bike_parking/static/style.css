@@ -1,0 +1,75 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #5AADEB;
+	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", 
+			CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", 
+			sans-serif;
+}
+
+#top-bar {
+	text-align: right;
+	padding: 0;
+}
+
+#github-star {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.hor-section {
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+}
+
+#header {
+	margin-top: 0;
+	text-align: center;
+}
+
+#header > a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#search-options {
+	text-align: center;
+	background-color: purple;
+}
+
+#location-search-options {
+	display: none;
+}
+
+#street-search-options {
+	display: none;
+}
+
+#results-container {
+	background-color: white;
+}
+
+#footer {
+	text-align: center;
+	background-color: orange;
+}
+
+.result-number {
+	float: left;
+	text-align: right;
+	width: 40%;
+	font-size: 3em;
+}
+
+.result-info-container {
+	float: left;
+	width: 60%;
+}
+
+.result-info {
+	padding: 10px;
+}
+
+#footer > p > a {
+	color: black;
+}
