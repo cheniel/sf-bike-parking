@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" >
 <html>
 	<head>
 		<title>sf bike parking locator</title>
 
 		{% load staticfiles %}
 		<script src="{% static "parking.js" %}"></script>
-		<link rel="stylesheet" type="text/css" href="{% static "cssreset.css" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "normalize.css" %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static "style.css" %}"/>
 
 	</head>
 	<body>
 		<div id="top-bar">
-			<iframe id="github-star" src="http://ghbtns.com/github-btn.html?user=cheniel&repo=sf-bike-parking&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+			<iframe id="github-star" src="http://ghbtns.com/github-btn.html?user=cheniel&repo=sf-bike-parking&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
 		</div>
 
 		<div id="header" class="hor-section">
@@ -47,17 +48,16 @@
 			{% else %}
 				
 				<div id="search-type-selection">
-					<p>find bike parking</p>
 
-					<div id="location-search-button">
-						via location data
-					</div>
+					<button id="location-search-button" class="L-button">
+						find via location
+					</button>
 
-					<p>OR</p>
+					<p id="or">OR</p>
 
-					<div id="street-search-button">
-						via street
-					</div>
+					<button id="street-search-button" class="L-button">
+						find via street
+					</button>
 				</div>
 
 				<div id="location-search-options">
@@ -81,29 +81,29 @@
 		</div>
 
 		{% if results %}
-			<div id="results-container" class="hor-section">
-					{% for result in results %}
-						<div class="result">
-							<div class="result-number">
-								{{ result.priority }}
-							</div>
-							<div class="result-info-container">
-								<div class="result-info">
-									{{result.address}}<br />
-									{{result.location}}<br />
-									({{result.latitude}}, {{result.longitude}}) <br />
-									{{result.numRacks}} racks, {{result.spaces}} spaces. <br />
-								</div>
-							</div>
-
+		<div id="results-container" class="hor-section">
+				{% for result in results %}
+					<div class="result">
+						<div class="result-number">
+							{{ result.priority }}
 						</div>
-					{% endfor %}
-			
-					{% if rawDataLink %}
-						<a href="{{rawDataLink}}">raw data</a><br />
-					{% endif %}
+						<div class="result-info-container">
+							<div class="result-info">
+								<div class="r-address">{{result.address}}</div>
+								<div class="r-coordinates">({{result.latitude}}, {{result.longitude}}) </div>
+								<div class="r-location">@{{result.location}}</div>
+								<div class="r-spaces">{{result.numRacks}} racks, {{result.spaces}} spaces. </div>
+							</div>
+						</div>
 
-			</div>
+					</div>
+				{% endfor %}
+		
+				{% if rawDataLink %}
+					<a href="{{rawDataLink}}">raw data</a><br />
+				{% endif %}
+
+		</div>
 		{% endif %}
 
 		<div id="footer" class="hor-section">

@@ -34,7 +34,8 @@ body {
 
 #search-options {
 	text-align: center;
-	background-color: purple;
+	color: white;
+	background-color: black;
 }
 
 #location-search-options {
@@ -47,6 +48,7 @@ body {
 
 #results-container {
 	background-color: white;
+	overflow: auto;
 }
 
 #footer {
@@ -54,22 +56,82 @@ body {
 	background-color: orange;
 }
 
+.result {
+	width: 375px;
+	margin: 0 auto;
+}
+
 .result-number {
 	float: left;
 	text-align: right;
-	width: 40%;
+	width: 25%;
 	font-size: 3em;
+	color: #6E6E6E;
 }
 
 .result-info-container {
 	float: left;
-	width: 60%;
+	width: 75%;
 }
 
 .result-info {
 	padding: 10px;
 }
 
+#footer {
+	height: 50px;
+	line-height: 50px;
+}
+
 #footer > p > a {
 	color: black;
 }
+
+
+.r-address {
+	font-size: 1.75em;
+}
+
+.r-coordinates {
+	color: #9D9D9D;
+}
+
+.r-location {
+	color: #9D9D9D;
+}
+
+.r-spaces {
+	color: #9D9D9D;
+}
+
+.L-button {
+	width: 300px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 auto;
+	color: white;
+}
+
+#location-search-button {
+	background-color: blue;
+}
+
+#street-search-button {
+	background-color: red;
+}
+
+#search-type-selection {
+	padding: 25px;
+}
+
+#or {
+	color: white;
+	margin: 25px;
+}
+
+
+
+
+
+
+
