@@ -19,10 +19,10 @@
 
 			<a href=".">
 				<!-- temp image -->
-				<img src="http://d75822.medialib.glogster.com/media/53/537a88edfbf25c8b1291950b1826a422c5b5820826975327c253f4f3ca36c3da/sf-logo-cmyk-jpg-jpg.jpg">
-				<p><h1>bike parking locator</h1></p>
+				<img id="bike-img" src="{% static "bike.jpg" %}">
+				<p><h1 id="app-name">san francisco bike parking locator</h1></p>
 			</a>
-			finds nearest public bike rack based on SF open data
+			<p>finds nearest public bike rack based on <a href="https://data.sfgov.org/Transportation/Bicycle-Parking-Public-/w969-5mn4">SF open data</a></p>
 		</div>
 		
 		<div id="search-options" class="hor-section">
@@ -31,8 +31,8 @@
 				<p>showing {{ results|length }} results for... <br />({{latitude}}, {{longitude}})</p>
 				
 				<a href=".">
-					<div id="new-search-button">
-						<p>new search?</p>
+					<div id="new-search-button" class="L-button">
+						new search?
 					</div>
 				</a>
 
@@ -40,8 +40,8 @@
 				<p>showing {{ results|length }} results for... <br />{{street}}</p>
 
 				<a href=".">
-					<div id="new-search-button">
-						<p>new search?</p>
+					<div id="new-search-button" class="L-button">
+						new search?
 					</div>
 				</a>
 
@@ -61,19 +61,20 @@
 				</div>
 
 				<div id="location-search-options">
-					<input id="location-trigger" type="button" value="fill my location">
+					<button id="location-trigger" type="button" class="L-button">fill my location</button>
 					<form>
-						latitude: <input id="latitude" type="text" name="latitude" value="{{latitude}}"><br />
-						longitude: <input id="longitude" type="text" name="longitude" value="{{longitude}}"><br />
-						<input type="submit" value="search by location">
+						<input id="latitude" type="text" name="latitude" value="{{latitude}}" placeholder="latitude"><input id="longitude" type="text" name="longitude" value="{{longitude}}" placeholder="longitude"><br />
+						<button id="search-location" type="submit" class="L-button">search by location</button>
 					</form>
+					<div class="diff-search"><a href=".">try a different search</a></div>
 				</div>
 
 				<div id="street-search-options">
 					<form>
-						street name: <input id="street" type="text" name="street" value="{{street}}"><br />
-						<input type="submit" value="search by street">
+						street name: <input id="street" type="text" name="street" value="{{street}}" placeholder='omit "street," "st," etc...'><br />
+						<button id="search-street" type="submit" class="L-button">search by street</button>
 					</form>
+					<div class="diff-search"><a href=".">try a different search</a></div>
 				</div>
 
 			{% endif %}
@@ -107,7 +108,7 @@
 		{% endif %}
 
 		<div id="footer" class="hor-section">
-			<p><a href="http://www.github.com/cheniel">created by cheniel</a></p>
+			<a href="http://www.github.com/cheniel">created by cheniel</a>
 		</div>
 
 	</body>

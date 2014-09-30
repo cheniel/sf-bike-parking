@@ -1,7 +1,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #5AADEB;
+	color: white;
+	background-color: black;
 	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", 
 			CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", 
 			sans-serif;
@@ -33,6 +34,8 @@ body {
 }
 
 #search-options {
+	padding-top: 20px;
+	padding-bottom: 20px;
 	text-align: center;
 	color: white;
 	background-color: black;
@@ -53,7 +56,7 @@ body {
 
 #footer {
 	text-align: center;
-	background-color: orange;
+	background-color: black;
 }
 
 .result {
@@ -90,7 +93,7 @@ body {
 
 
 .r-address {
-	font-size: 1.75em;
+	font-size: 1.25em;
 }
 
 .r-coordinates {
@@ -112,14 +115,15 @@ body {
 	line-height: 50px;
 	margin: 0 auto;
 	color: white;
+	border: white solid 1px;
+	background-color: black;
+	cursor: pointer;
 }
 
 #location-search-button {
-	background-color: blue;
 }
 
 #street-search-button {
-	background-color: red;
 }
 
 #search-type-selection {
@@ -136,7 +140,35 @@ body {
 	margin: 0 auto;
 }
 
+#bike-img {
+	max-width: 300px;
+}
 
+#app-name {
+	font-size: 1.5em;
+}
 
+p {
+	margin: 10px;
+}
 
+input{
+	margin-top: 10px;
+}
 
+a {
+	color: white;
+}
+
+.diff-search {
+	margin-top: 10px;
+	text-decoration: none;
+}
+
+#search-location {
+	margin-top: 10px;
+}
+
+#search-street {
+	margin-top: 10px;
+}

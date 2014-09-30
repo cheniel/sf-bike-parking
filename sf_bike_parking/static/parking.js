@@ -33,6 +33,7 @@ window.onload = function() {
         locationSearchButton.onclick = function() {
             document.getElementById("location-search-options").style.display = 'block';
             document.getElementById("search-type-selection").style.display = 'none';
+            document.getElementById("latitude").focus();
         }
     }
 
@@ -41,6 +42,7 @@ window.onload = function() {
         streetSearchButton.onclick = function() {
             document.getElementById("street-search-options").style.display = 'block';
             document.getElementById("search-type-selection").style.display = 'none';
+            document.getElementById("street").focus();
         }
     }
 
