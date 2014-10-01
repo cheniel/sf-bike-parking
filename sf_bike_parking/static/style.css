@@ -41,6 +41,10 @@ body {
 	background-color: black;
 }
 
+#search-options > a {
+	text-decoration: none;
+}
+
 #location-search-options {
 	display: none;
 }
@@ -166,6 +170,9 @@ a {
 
 .diff-search {
 	margin-top: 10px;
+}
+
+.diff-search > a {
 	text-decoration: none;
 }
 
