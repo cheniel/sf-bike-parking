@@ -1,1 +1,194 @@
-/Users/danielchen/Documents/Projects/2014/sf-bike-parking/sf_bike_parking/static/style.css
+body {
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: black;
+	font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", 
+			CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", 
+			sans-serif;
+}
+
+#top-bar {
+	text-align: right;
+	padding: 0;
+}
+
+#github-star {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.hor-section {
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+}
+
+#header {
+	margin-top: 0;
+	text-align: center;
+}
+
+#header > a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#search-options {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	color: white;
+	background-color: black;
+}
+
+#search-options > a {
+	text-decoration: none;
+}
+
+#location-search-options {
+	display: none;
+}
+
+#street-search-options {
+	display: none;
+}
+
+#results-container {
+	background-color: white;
+	overflow: auto;
+}
+
+#footer {
+	text-align: center;
+	background-color: black;
+}
+
+.result {
+	width: 100%;
+	max-width: 375px;
+	margin: 0 auto;
+}
+
+.result-number {
+	float: left;
+	text-align: right;
+	width: 25%;
+	font-size: 3em;
+	color: #6E6E6E;
+}
+
+.result-info-container {
+	float: left;
+	width: 75%;
+}
+
+.result-info {
+	padding: 10px;
+}
+
+#footer {
+	height: 50px;
+	line-height: 50px;
+}
+
+
+.r-address {
+	color: black;
+	font-size: 1.25em;
+}
+
+.r-coordinates {
+	color: #9D9D9D;
+	font-size: .75em;
+}
+
+.r-location {
+	font-size: 1.1em;
+	color: #9D9D9D;
+}
+
+.r-spaces {
+	color: #9D9D9D;
+}
+
+.L-button {
+	width: 98%;
+	max-width: 300px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 auto;
+	color: white;
+	border: white solid 1px;
+	background-color: black;
+	cursor: pointer;
+}
+
+#search-type-selection {
+	padding: 25px;
+}
+
+#or {
+	color: white;
+	margin: 25px;
+}
+
+#raw-data {
+	text-align: center;
+	margin: 0 auto;
+	color: black;
+	background-color: white;
+	border: 1px black solid;
+}
+
+#raw-data-section {
+	background-color: white;
+}
+
+#raw-data > a {
+	color: black;
+}
+
+#bike-img {
+	max-width: 300px;
+}
+
+#app-name {
+	font-size: 1.5em;
+}
+
+p {
+	margin: 10px;
+}
+
+input{
+	margin-top: 10px;
+}
+
+a {
+	color: white;
+}
+
+.diff-search {
+	margin-top: 10px;
+}
+
+.diff-search > a {
+	text-decoration: none;
+}
+
+#search-location {
+	margin-top: 10px;
+}
+
+#search-street {
+	margin-top: 10px;
+}
+
+.search-query {
+	font-size: 1.5em;
+}
+
+#location-trigger {
+	font-size: 1.5em;
+}
+
