@@ -22,7 +22,7 @@
 				<img id="bike-img" src="{% static "bike.jpg" %}">
 				<p><h1 id="app-name">san francisco bike parking locator</h1></p>
 			</a>
-			<p>finds nearest public bike rack based on <a href="https://data.sfgov.org/Transportation/Bicycle-Parking-Public-/w969-5mn4">SF open data</a></p>
+			<p>finds nearest public bike rack based on <a href="https://data.sfgov.org/Transportation/Bicycle-Parking-Public-/w969-5mn4" target="_blank">SF open data</a></p>
 		</div>
 		
 		<div id="search-options" class="hor-section">
@@ -106,12 +106,12 @@
 
 		{% if results and rawDataLink %}
 		<div id="raw-data-section" class="hor-section">
-			<a href="{{rawDataLink}}"><div id="raw-data" class="L-button">raw data</div></a>
+			<a href="{{rawDataLink}}" target="_blank"><div id="raw-data" class="L-button">raw data</div></a>
 		</div>
 		{% endif %}
 
 		<div id="footer" class="hor-section">
-			<a href="http://www.github.com/cheniel">created by cheniel</a>
+			<a href="http://www.github.com/cheniel" target="_blank">created by cheniel</a>
 		</div>
 
 	</body>

@@ -8,7 +8,7 @@ import json
 
 # source:https://data.sfgov.org/Transportation/Bicycle-Parking-Public-/w969-5mn4
 API_URL="http://data.sfgov.org/resource/w969-5mn4.json?";
-SEARCH_RANGE=.1 # miles
+SEARCH_RANGE=.5 # miles
 MI_PER_LATITUDE=69.11 
 MI_PER_LONGITUDE=68.69 # specific to SF area
 LAT_OFFSET=SEARCH_RANGE/MI_PER_LATITUDE
@@ -27,9 +27,11 @@ def index(request):
 		try:
 			if street:
 				query = createStreetQuery(street)
+				results = getResults(query)
 			else:
 				query = createLocationQuery(float(latitude), float(longitude))
-			results = getResults(query)
+				results = getSortedResults(query, float(latitude), float(longitude))
+
 		except ValueError:
 			print "Query was not valid, not searching for results."
 			latitude = ""
@@ -52,7 +54,7 @@ def createLocationQuery(latitude, longitude):
 	lon_high = longitude + LON_OFFSET
 	
 	query=API_URL
-	query+="$limit=" + str(RESULT_LIMIT)
+	# query+="$limit=" + str(RESULT_LIMIT)
 	query+="&$where=within_box(latitude,"+str(lat_high)+","+str(lon_low)+","+str(lat_low)+","+str(lon_high)+")"
 
 	return query
@@ -84,6 +86,47 @@ def getResults(query):
 	except urllib2.URLError, e:
 	    print "URLError when retrieving results"
 
-
-
 	return results
+
+def getSortedResults(query,latitude,longitude):
+	jsonResults = None
+	results = []
+
+	try:
+		resultPage = urllib2.urlopen(query)	
+		jsonResults = json.load(resultPage)
+		resultPage.close()
+		
+		for result in jsonResults:
+			newResult = Result(result)
+			newResult.setDistanceFromUser(latitude, longitude)
+			results.append(newResult)
+
+		results.sort(sortComparator)
+
+		order = 1
+		for result in results:
+			result.setPriority(order)
+			if order == RESULT_LIMIT:
+				break
+
+			order += 1
+
+	except urllib2.HTTPError, e:
+	    print "HTTPError when retrieving results"
+	except urllib2.URLError, e:
+	    print "URLError when retrieving results"
+
+	return results[:RESULT_LIMIT]
+
+def sortComparator(a, b):
+	if a.distanceFromUser > b.distanceFromUser:
+		return 1
+	elif a.distanceFromUser == b.distanceFromUser:
+		return 0
+	else:
+		return -1
+
+
+
+

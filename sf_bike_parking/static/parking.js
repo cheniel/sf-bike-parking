@@ -68,11 +68,11 @@ function locErrorHandler(error) {
             resetForm();
             break;
         case error.POSITION_UNAVAILABLE:
-            alert("Location information is unavailable.");
+            alert("Location information is unavailable. Refresh and try again.");
             resetForm();
             break;
         case error.TIMEOUT:
-            alert("The request to get user location timed out.");
+            alert("The request to get user location timed out. Refresh and try again.");
             resetForm();
             break;
         case error.UNKNOWN_ERROR:
