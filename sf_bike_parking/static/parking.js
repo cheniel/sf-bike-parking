@@ -49,7 +49,7 @@ window.onload = function() {
 }
 
 function getLocation() {
-	document.getElementById("location-trigger").value="please wait...";
+	document.getElementById("location-trigger").innerHTML ="please wait...";
 	document.getElementById("latitude").value = "finding...";
 	document.getElementById("longitude").value = "finding...";
 	navigator.geolocation.getCurrentPosition(fillLocation, locErrorHandler);
@@ -58,7 +58,7 @@ function getLocation() {
 function fillLocation(location) {
 	document.getElementById("latitude").value = location.coords.latitude;
 	document.getElementById("longitude").value = location.coords.longitude;
-	document.getElementById("location-trigger").value="refresh location";
+	document.getElementById("location-trigger").innerHTML ="refresh location";
 }
 
 function locErrorHandler(error) {

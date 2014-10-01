@@ -28,8 +28,9 @@
 		<div id="search-options" class="hor-section">
 
 			{% if latitude and longitude %}
-				<p>showing {{ results|length }} results for... <br />({{latitude}}, {{longitude}})</p>
-				
+				<p>showing {{ results|length }} results for... </p>
+				<p class="search-query">({{latitude}}, {{longitude}})</p>
+
 				<a href=".">
 					<div id="new-search-button" class="L-button">
 						new search?
@@ -37,7 +38,9 @@
 				</a>
 
 			{% elif street %}
-				<p>showing {{ results|length }} results for... <br />{{street}}</p>
+				<p>showing {{ results|length }} results for... </p>
+				<p class="search-query">{{street}}</p>
+
 
 				<a href=".">
 					<div id="new-search-button" class="L-button">
@@ -64,7 +67,7 @@
 					<button id="location-trigger" type="button" class="L-button">fill my location</button>
 					<form>
 						<input id="latitude" type="text" name="latitude" value="{{latitude}}" placeholder="latitude"><input id="longitude" type="text" name="longitude" value="{{longitude}}" placeholder="longitude"><br />
-						<button id="search-location" type="submit" class="L-button">search by location</button>
+						<button id="search-location" type="submit" class="L-button">search</button>
 					</form>
 					<div class="diff-search"><a href=".">try a different search</a></div>
 				</div>
@@ -72,7 +75,7 @@
 				<div id="street-search-options">
 					<form>
 						street name: <input id="street" type="text" name="street" value="{{street}}" placeholder='omit "street," "st," etc...'><br />
-						<button id="search-street" type="submit" class="L-button">search by street</button>
+						<button id="search-street" type="submit" class="L-button">search</button>
 					</form>
 					<div class="diff-search"><a href=".">try a different search</a></div>
 				</div>
@@ -91,19 +94,19 @@
 						<div class="result-info-container">
 							<div class="result-info">
 								<div class="r-address">{{result.address}}</div>
-								<div class="r-coordinates">({{result.latitude}}, {{result.longitude}}) </div>
-								<div class="r-location">@{{result.location}}</div>
+								<div class="r-location">@{{result.location}}</div><div class="r-coordinates">({{result.latitude}}, {{result.longitude}}) </div>
 								<div class="r-spaces">{{result.numRacks}} racks, {{result.spaces}} spaces. </div>
 							</div>
 						</div>
 
 					</div>
 				{% endfor %}
-		
-				{% if rawDataLink %}
-					<div id="raw-data"><a href="{{rawDataLink}}">raw data</a><br /></div>
-				{% endif %}
+		</div>
+		{% endif %}
 
+		{% if results and rawDataLink %}
+		<div id="raw-data-section" class="hor-section">
+			<a href="{{rawDataLink}}"><div id="raw-data" class="L-button">raw data</div></a>
 		</div>
 		{% endif %}
 

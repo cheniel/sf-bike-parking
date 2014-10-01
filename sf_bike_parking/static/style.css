@@ -87,20 +87,19 @@ body {
 	line-height: 50px;
 }
 
-#footer > p > a {
-	color: black;
-}
-
 
 .r-address {
+	color: black;
 	font-size: 1.25em;
 }
 
 .r-coordinates {
 	color: #9D9D9D;
+	font-size: .75em;
 }
 
 .r-location {
+	font-size: 1.1em;
 	color: #9D9D9D;
 }
 
@@ -120,12 +119,6 @@ body {
 	cursor: pointer;
 }
 
-#location-search-button {
-}
-
-#street-search-button {
-}
-
 #search-type-selection {
 	padding: 25px;
 }
@@ -138,6 +131,17 @@ body {
 #raw-data {
 	text-align: center;
 	margin: 0 auto;
+	color: black;
+	background-color: white;
+	border: 1px black solid;
+}
+
+#raw-data-section {
+	background-color: white;
+}
+
+#raw-data > a {
+	color: black;
 }
 
 #bike-img {
@@ -172,3 +176,12 @@ a {
 #search-street {
 	margin-top: 10px;
 }
+
+.search-query {
+	font-size: 1.5em;
+}
+
+#location-trigger {
+	font-size: 1.5em;
+}
+
